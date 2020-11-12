@@ -1,0 +1,17 @@
+<table>
+  <caption>user</caption>
+  <tr>
+    <th>Nome</th>
+    <th>Cognome</th>
+    <th>Cod. Fiscale</th>
+    <th>E-mail</th>
+    <th>Telefono</th>
+    <th>Provincia</th>
+    <th>Età</th>
+    <th>Actions</th>
+  </tr>
+  <tr app-user *ngFor="let user of users" [user-data] = "user" (publicEventUpdateUser)="updateUser($event)" (publicEventDeleteUser) = "deleteUserFather($event)" (evidenziatore) = "evidenziaUtente($event)">
+    
+  </tr>
+  
+</table>

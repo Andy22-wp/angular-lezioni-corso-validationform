@@ -1,0 +1,43 @@
+<form #f="ngForm">{{f.form.value | json}}
+	<fieldset>
+		<div>
+			<legend>Dettagli utente</legend>
+			<input type="hidden" name="id" [(ngModel)]="user.id"/>
+			<label for="name">Nome:</label>
+			<input [(ngModel)]="user.name" #firstname="ngModel" type="text" name="name" id="name" required minlength="3"/>
+      <div *ngIf="firstname.dirty && firstname.touched && firstname.invalid">
+        <div *ngIf="firstname.errors.required">Campo obbligatorio.</div>
+        <div *ngIf="firstname.errors.minlength">il campo deve essere almeno {{firstname.errors.minlength.requiredLength}} di caratteri </div>
+      </div>
+    </div>
+			<div>
+				<label for="lastname">Cognome:</label>
+				<input [(ngModel)]="user.lastname" type="text" name="lastname" id="lastname" />
+    </div>
+				<div>
+					<label for="fiscalcode">Codice fiscale:</label>
+					<input [(ngModel)]="user.fiscalcode" type="text" name="fiscalcode" id="fiscalcode" />
+    </div>
+					<div>
+						<label for="email">E-mail:</label>
+						<input [(ngModel)]="user.email" type="email" name="email" id="email" />
+    </div>
+						<div>
+							<label for="phone">Telefono:</label>
+							<input [(ngModel)]="user.phone" type="number" name="phone" id="phone" />
+    </div>
+							<div>
+								<label for="provincia">Provincia:</label>
+								<input [(ngModel)]="user.prov" type="text" name="provincia" id="provincia" />
+    </div>
+								<div>
+									<label for="age">Età:</label>
+									<input [(ngModel)]="user.age" type="number" name="age" id="age" />
+    </div>
+									<div>
+										<!--anche se non è necessario lascio il parametro f.form che potrebbe servire per passare i valori del form ad un metodo-->
+										<button type="submit"(click)=resetUser(f.form)>Reset</button>
+										<button [disabled]="f.invalid" type="submit"(click)=saveUser()>Invia</button>
+									</div>
+	</fieldset>
+</form>
