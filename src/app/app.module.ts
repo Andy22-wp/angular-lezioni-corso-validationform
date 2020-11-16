@@ -10,17 +10,10 @@ import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
-
-const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full'},
-  {path: 'users', component: UsersComponent},
-  {path: 'users/newuser', component: UserDetailsComponent},
-  {path: 'user/:id/edit', component: UserDetailsComponent},
-  {path: 'user/:id', component: UserDataComponent}
-];
+import { RoutingModule } from './routing-module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(routes) ],
+  imports:      [ BrowserModule, FormsModule, RoutingModule],
   exports:      [ RouterModule ],
   providers:    [ UserService ],
   declarations: [ AppComponent, HelloComponent, UsersComponent, UserComponent, UserDetailsComponent, UserDataComponent ],
