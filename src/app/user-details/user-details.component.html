@@ -36,6 +36,7 @@
     </div>
 									<div>
 										<!--anche se non è necessario lascio il parametro f.form che potrebbe servire per passare i valori del form ad un metodo-->
+                    <button type="submit"(click)=backToUsers()>Back</button>
 										<button type="submit"(click)=resetUser(f.form)>Reset</button>
 										<button [disabled]="f.invalid" type="submit"(click)=saveUser()>Invia</button>
 									</div>

@@ -42,13 +42,16 @@ export class UserDetailsComponent implements OnInit {
     }
   }
 //passare 'form' adesso non è necessario ma mi mostra che potrei passare un parametro f.form dal pulsante reset
-  resetUser(form){
-    
+  resetUser(form){  
     if(this.user.id === 0){
       this.user = new User();
     } else {
         this.user = this.userCopy;
     }
+  }
+
+  backToUsers(){
+    this.router.navigate(['users']);
   }
   
 }
